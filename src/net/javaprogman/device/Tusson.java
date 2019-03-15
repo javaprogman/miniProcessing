@@ -1,6 +1,6 @@
 package net.javaprogman.device;
 
-import net.javaprogman.paymentInstrument.Card;
+import net.javaprogman.DBEntity.Card;
 
 public class Tusson implements Terminal {
 
