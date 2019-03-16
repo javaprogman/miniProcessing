@@ -1,5 +1,6 @@
 package net.javaprogman;
 
+import net.javaprogman.DBEntity.Card;
 import net.javaprogman.DBEntity.Client;
 import net.javaprogman.DBEntity.Sex;
 import net.javaprogman.dbEntityManager.AccountController;
@@ -32,6 +33,8 @@ public class Main {
         System.out.println("Creating connection ....");
         Connection connection = DriverManager.getConnection(DATABASE_URL, USER, PASS);
         connection.setAutoCommit(false);
+        InternetBank ib = new InternetBank(connection);
+        ib.start();
         /*PreparedStatement statement = connection.prepareStatement(SELECT_CLIENT);
         ResultSet rs = statement.executeQuery();
 
@@ -40,25 +43,41 @@ public class Main {
 
         }*/
 
-        String query = String.format("update clients set name='%s', passport='%s' where id=%d",
+       /* String query = String.format("update clients set name='%s', passport='%s' where id=%d",
                 "ASDF", "FJHKD", 1);
-        System.out.println(query);
+        System.out.println(query);*/
 
         ClientController cc = new ClientController(connection);
         cc.reportAll();
        /* AccountController ac = new AccountController(connection);
-        ac.reportAll();
-        CardController cac = new CardController(connection);
+        ac.reportAll();*/
+        /*CardController cac = new CardController(connection);
         cac.reportAll();*/
 
-       Date date = new Date();
+     /*  Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
 
 
        cc.updateEntity(new Client(1, "Vod Alexander", "MP67890", sdf.parse("1984-03-10"),Sex.MALE));
-        cc.reportAll();
+        cc.reportAll();*/
 
         //statement.close();
+
+        //cac.updateEntity(new Card("0000001234", "9999", 1 ));
+
+        /*cac.createEntity(cac.stringToEntity("Masha MP3456 1991-04-27 FEMALE"));
+        cac.reportAll();*/
+
+        /*cc.createEntity(cc.stringToEntity("Masha MP3456 1991-04-27 FEMALE"));
+        cc.reportAll();*/
+        /*ac.createEntity(ac.stringToEntity("7898797 333 1"));
+        ac.reportAll();*/
+        /*cac.createEntity(cac.stringToEntity("0000000000666666 3434 1 1"));
+        cac.reportAll();*/
+        /*cac.deleteEntity("0000000000666666");
+        cac.reportAll();*/
+
+        cc.reportAll();
         connection.close();
 
        /* InternetBank ib = new InternetBank();

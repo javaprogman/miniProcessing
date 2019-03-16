@@ -1,12 +1,17 @@
 package net.javaprogman.dbEntityManager;
 
 import net.javaprogman.DBEntity.Accounts;
+import net.javaprogman.DBEntity.Client;
+import net.javaprogman.DBEntity.Sex;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AccountController extends EntityController<Accounts, Integer> {
@@ -52,17 +57,82 @@ public class AccountController extends EntityController<Accounts, Integer> {
     }
 
     @Override
-    public Accounts updateEntity(Accounts accounts) {
-        return null;
+    public Accounts updateEntity(Accounts account) {
+        String query = String.format("update accounts set amount='%d' where account_number='%s'",
+                account.getAmount(),account.getAccount_number());
+        PreparedStatement ps = getPreparedStatement(query);
+        try {
+            if(ps.executeUpdate() > 0){
+                return account;
+            }else {
+                throw new SQLException();
+            }
+        }catch (SQLException e){
+            try {
+                EntityController.connection.rollback();
+            } catch (SQLException ee) {
+                System.out.println("Rollback is bad - accountsController.updateEntity " + ee);
+            }
+            e.printStackTrace();
+            System.out.println("Error - Accounts controller.updateEntity " + e );
+        } finally {
+            closePreparedStatement(ps);
+        }
+
+        return account;
     }
 
     @Override
-    public boolean createEntity(Accounts accounts) {
-        return false;
+    public void createEntity(Accounts accounts) {
+        String query = "insert into accounts (account_number, amount, client_id) values (?,?,?)";
+        PreparedStatement ps = getPreparedStatement(query);
+        try {
+
+            ps.setString(1, accounts.getAccount_number());
+            ps.setInt(2, accounts.getAmount());
+            ps.setInt(3, accounts.getClient_id());
+            if (ps.executeUpdate() > 0) {
+                System.out.println("New account add");
+            } else {
+                System.out.println("New account don't add");
+            }
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error - Account.createEntity " + e);
+        }finally {
+            closePreparedStatement(ps);
+        }
+
     }
 
     @Override
-    public boolean deleteEntity(Integer id) {
-        return false;
+    public void deleteEntity(Integer id) {
+        String query = "delete from accounts where id=" + Integer.toString(id);
+        PreparedStatement ps = getPreparedStatement(query);
+        try {
+            ps.executeUpdate();
+            System.out.println("Account deleted");
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error - accountController.deleteEntity");
+        }finally {
+            closePreparedStatement(ps);
+        }
+            }
+
+    @Override
+    public Accounts stringToEntity(String input) {
+        String[] splitted = input.split(" ");
+        if (splitted.length == 3) {
+            String account_number = splitted[0];
+            Integer amount = Integer.parseInt(splitted[1]);
+            Integer client_id = Integer.parseInt(splitted[2]);
+            return new Accounts(0, account_number, amount, client_id);
+        }
+        else {
+            System.out.println("Incorrect number of parametrs entered ...");
+            throw new IndexOutOfBoundsException();
+        }
     }
 }

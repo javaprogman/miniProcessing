@@ -5,11 +5,14 @@ public class Card {
     private String cardNumber;
     private String pin;
     private Integer account_id;
+    private Integer client_id;
 
-    public Card(String сardNumber, String pin, Integer acount_id) {
+    public Card(String сardNumber, String pin, Integer acount_id, Integer client_id) {
         this.cardNumber = сardNumber;
         this.pin = pin;
         this.account_id = acount_id;
+        this.client_id = client_id;
+
     }
 
     public String getСardNumber() {
@@ -34,6 +37,14 @@ public class Card {
 
     public void setAcount_id(Integer acount_id) {
         this.account_id = acount_id;
+    }
+
+    public Integer getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(Integer client_id) {
+        this.client_id = client_id;
     }
 
     @Override

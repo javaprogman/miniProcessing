@@ -4,6 +4,8 @@ import net.javaprogman.DBEntity.Client;
 import net.javaprogman.DBEntity.Sex;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -82,12 +84,66 @@ public class ClientController extends EntityController<Client, Integer> {
     }
 
     @Override
-    public boolean createEntity(Client client) {
-        return false;
+    public void createEntity(Client client) {
+        String query = "insert into clients (name, passport, birthdate, sex) values (?,?,?,?)";
+        PreparedStatement ps = getPreparedStatement(query);
+        try {
+
+            ps.setString(1, client.getName());
+            ps.setString(2, client.getPassport());
+            ps.setDate(3, new java.sql.Date(client.getBirthdate().getTime()));
+            ps.setString(4, client.getSex().name());
+            if (ps.executeUpdate() > 0) {
+                System.out.println("New client add");
+            } else {
+                System.out.println("New client don't add");
+            }
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error - Client.createEntity " + e);
+        }finally {
+            closePreparedStatement(ps);
+        }
     }
 
     @Override
-    public boolean deleteEntity(Integer id) {
-        return false;
+    public void deleteEntity(Integer id) {
+        String query = "delete from clients where id=" + Integer.toString(id);
+        PreparedStatement ps = getPreparedStatement(query);
+        try {
+            ps.executeUpdate();
+            System.out.println("Client deleted");
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error - clientController.deleteEntity");
+        }finally {
+            closePreparedStatement(ps);
+        }
+    }
+
+    @Override
+    public Client stringToEntity(String input) {
+        String[] splitted = input.split(" ");
+        String name = "";
+        String passport = "";
+        Date birthdate = new Date();
+        Sex sex = Sex.N_A;
+        if (splitted.length == 4) {
+            try {
+                name = splitted[0];
+                passport = splitted[1];
+                birthdate = new SimpleDateFormat("yyyy-mm-dd").parse(splitted[2]);
+                sex = Sex.valueOf(splitted[3]);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+                System.out.println("Error - Client.stringToEntity : don't parse. See input client data!!!");
+            }
+            return new Client(0, name, passport, birthdate, sex);
+        } else {
+            System.out.println("Incorrect number of parametrs entered ...");
+            throw new IndexOutOfBoundsException();
+        }
     }
 }

@@ -10,11 +10,12 @@ public abstract class EntityController<E, K>{
     public static Connection connection;
 
     public abstract List<E> getAll();
-    public abstract void reportAll();
+    public abstract void reportAll();   //+
     public abstract E getEntityById(K id);
-    public abstract E updateEntity(E entity);
-    public abstract boolean createEntity(E entity);
-    public abstract boolean deleteEntity(K id);
+    public abstract E updateEntity(E entity); //+
+    public abstract void createEntity(E entity); //+
+    public abstract void deleteEntity(K id);//+
+    public abstract E stringToEntity(String input); //+
 
     public EntityController(Connection connection) {
         this.connection = connection;
