@@ -35,7 +35,7 @@ public abstract class EntityController<E, K>{
         if (ps != null) {
             try {
                 ps.close();
-                connection.commit();
+              //  connection.commit();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

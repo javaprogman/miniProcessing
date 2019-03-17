@@ -52,8 +52,26 @@ public class AccountController extends EntityController<Accounts, Integer> {
     }
 
     @Override
-    public Accounts getEntityById(Integer id) {
-        return null;
+    public Accounts getEntityById(Integer idIn) {
+        String query = "select * from accounts where id=" + idIn;
+        PreparedStatement ps = getPreparedStatement(query);
+        Integer id = 0;
+        String account_number = "";
+        Integer amount = 0;
+        Integer client_id = 0;
+        try {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                id = rs.getInt("id");
+                account_number = rs.getString("account_number");
+                amount = rs.getInt("amount");
+                client_id = rs.getInt("client_id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error - CardController - getCardByNumber");
+        }
+        return new Accounts(id, account_number, amount, client_id);
     }
 
     @Override
@@ -63,13 +81,14 @@ public class AccountController extends EntityController<Accounts, Integer> {
         PreparedStatement ps = getPreparedStatement(query);
         try {
             if(ps.executeUpdate() > 0){
+                connection.commit();
                 return account;
             }else {
                 throw new SQLException();
             }
         }catch (SQLException e){
             try {
-                EntityController.connection.rollback();
+                connection.rollback();
             } catch (SQLException ee) {
                 System.out.println("Rollback is bad - accountsController.updateEntity " + ee);
             }
@@ -92,6 +111,7 @@ public class AccountController extends EntityController<Accounts, Integer> {
             ps.setInt(2, accounts.getAmount());
             ps.setInt(3, accounts.getClient_id());
             if (ps.executeUpdate() > 0) {
+                connection.commit();
                 System.out.println("New account add");
             } else {
                 System.out.println("New account don't add");
@@ -112,6 +132,7 @@ public class AccountController extends EntityController<Accounts, Integer> {
         PreparedStatement ps = getPreparedStatement(query);
         try {
             ps.executeUpdate();
+            connection.commit();
             System.out.println("Account deleted");
         }catch (SQLException e) {
             e.printStackTrace();

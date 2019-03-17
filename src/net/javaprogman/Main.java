@@ -7,6 +7,7 @@ import net.javaprogman.dbEntityManager.AccountController;
 import net.javaprogman.dbEntityManager.CardController;
 import net.javaprogman.dbEntityManager.ClientController;
 import net.javaprogman.dbservices.InternetBank;
+import net.javaprogman.device.Tusson;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -33,8 +34,8 @@ public class Main {
         System.out.println("Creating connection ....");
         Connection connection = DriverManager.getConnection(DATABASE_URL, USER, PASS);
         connection.setAutoCommit(false);
-        InternetBank ib = new InternetBank(connection);
-        ib.start();
+        /*InternetBank ib = new InternetBank(connection);
+        ib.start();*/
         /*PreparedStatement statement = connection.prepareStatement(SELECT_CLIENT);
         ResultSet rs = statement.executeQuery();
 
@@ -48,11 +49,16 @@ public class Main {
         System.out.println(query);*/
 
         ClientController cc = new ClientController(connection);
-        cc.reportAll();
-       /* AccountController ac = new AccountController(connection);
-        ac.reportAll();*/
-        /*CardController cac = new CardController(connection);
-        cac.reportAll();*/
+        //cc.reportAll();
+        AccountController ac = new AccountController(connection);
+        //ac.reportAll();
+        CardController cac = new CardController(connection);
+        //cac.reportAll();
+        System.out.println(cac.getCardByNumber("0000001234"));
+        Tusson tusson = new Tusson(cc, ac, cac);
+        System.out.println(tusson.verification(new Card("0000001234", "9999", 1, 1 )));
+        System.out.println(tusson.balance(new Card("0000001234", "9999", 1, 1 )));
+
 
      /*  Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
@@ -77,10 +83,24 @@ public class Main {
         /*cac.deleteEntity("0000000000666666");
         cac.reportAll();*/
 
-        cc.reportAll();
-        connection.close();
+       /*cc.reportAll();
+        connection.close();*/
 
        /* InternetBank ib = new InternetBank();
         ib.start();*/
+
+       /*double x1 = 3;
+       double y1 = 2;
+       double x2 = 9;
+       double y2 = 4;
+       double deltax = (y2-y1)/(x2-x1);
+       double deltay = (y2-y1)/(x2-x1)*deltax;
+       int j = (int)((x2-x1)/deltax);
+       for (int i = 0; i <= j*10; i++){
+           x1 += deltax/10;
+           y1 += deltay/10;
+           System.out.println((int)x1+" " +(int)y1);
+
+       }*/
     }
 }

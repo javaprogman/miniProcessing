@@ -10,7 +10,12 @@ public interface Terminal {
 
     //public boolean payment();  //don't use
 
-    public boolean p2p(Card cardFrom, Card cardTo);
+    public boolean p2p(Card cardFrom, Card cardTo, Integer amount);
+
+    public boolean pinChange(Card card);
+
+    public Integer balance(Card card);
+
 
 
 }

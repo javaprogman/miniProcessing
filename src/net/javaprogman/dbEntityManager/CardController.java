@@ -48,8 +48,29 @@ public class CardController extends EntityController<Card, Integer> {
     }
 
     @Override
-    public Card getEntityById(Integer id) {
-        return null;
+    public Card getEntityById(Integer id) { return null; }
+
+
+    public Card getCardByNumber(String cardNumberIn) {
+        String query = "select * from cards where cardNumber=" + cardNumberIn;
+        PreparedStatement ps = getPreparedStatement(query);
+        String cardNumber = "";
+        String pin = "";
+        Integer account_id = 0;
+        Integer client_id = 0;
+        try {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                cardNumber = rs.getString("cardNumber");
+                pin = rs.getString("pin");
+                account_id = rs.getInt("account_id");
+                client_id = rs.getInt("client_id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error - CardController - getCardByNumber");
+        }
+        return new Card(cardNumber, pin, account_id, client_id);
     }
 
     @Override
