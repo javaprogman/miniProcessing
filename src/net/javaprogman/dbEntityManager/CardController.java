@@ -81,6 +81,7 @@ public class CardController extends EntityController<Card, Integer> {
         try {
 
             if (ps.executeUpdate() > 0) {
+                connection.commit();
                 return card;
             } else {
                 throw new SQLException();
@@ -109,6 +110,7 @@ public class CardController extends EntityController<Card, Integer> {
             ps.setInt(3, card.getAcount_id());
             ps.setInt(4, card.getClient_id());
             if (ps.executeUpdate() > 0) {
+                connection.commit();
                 System.out.println("New card add");
             } else {
                 System.out.println("New card don't add");
@@ -132,6 +134,7 @@ public class CardController extends EntityController<Card, Integer> {
         PreparedStatement ps = getPreparedStatement(query);
         try {
             ps.executeUpdate();
+            connection.commit();
             System.out.println("Card deleted");
         }catch (SQLException e) {
             e.printStackTrace();

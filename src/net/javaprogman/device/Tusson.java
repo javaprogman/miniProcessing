@@ -25,7 +25,7 @@ public class Tusson implements Terminal {
     @Override
     public boolean verification(Card cardForVerify) {
         Card card = cardController.getCardByNumber(cardForVerify.getСardNumber());
-        if (cardForVerify.getPin().equals(card.getPin())){
+        if (cardForVerify.getPin().equals(card.getPin())) {
             return true;
         } else return false;
     }
@@ -36,21 +36,25 @@ public class Tusson implements Terminal {
         if (verification(cardFrom)) {
             if (balance(cardFrom) >= amount) {
                 Accounts accountsFrom = accountController.getEntityById(cardFrom.getAcount_id());
-                accountsFrom.setAmount(accountsFrom.getAmount()-amount);
+                accountsFrom.setAmount(accountsFrom.getAmount() - amount);
                 Accounts accountsTo = accountController.getEntityById(cardTo.getAcount_id());
-                accountsTo.setAmount(accountsTo.getAmount()+amount);
+                accountsTo.setAmount(accountsTo.getAmount() + amount);
                 try {
-                    accountController.updateEntity(accountsFrom);
-                    accountController.updateEntity(accountsTo);
-                    EntityController.connection.commit();
+                    accountController.updateEntityWithoutCommit(accountsFrom);
+                    accountController.updateEntityWithoutCommit(accountsTo);
+                    accountController.connection.commit();
                 } catch (Exception e) {
-                    EntityController.connection.rollback();
+                    try {
+                        accountController.connection.rollback();
+                    } catch (SQLException roolE) {
+                        System.out.println("Transfer money is not passed. Rollback is bad.");
+                    }
                     System.out.println("Transfer money is not passed.");
                 }
-
-
-
                 return true;
+            } else {
+                System.out.println("Insufficient funds");
+                return false;
             }
 
         } else {

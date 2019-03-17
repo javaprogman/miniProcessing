@@ -101,6 +101,21 @@ public class AccountController extends EntityController<Accounts, Integer> {
         return account;
     }
 
+    public Accounts updateEntityWithoutCommit(Accounts account) throws SQLException {
+        String query = String.format("update accounts set amount='%d' where account_number='%s'",
+                account.getAmount(),account.getAccount_number());
+        PreparedStatement ps = getPreparedStatement(query);
+
+            if(ps.executeUpdate() > 0){
+                closePreparedStatement(ps);
+                return account;
+            }else {
+                closePreparedStatement(ps);
+                throw new SQLException();
+            }
+
+    }
+
     @Override
     public void createEntity(Accounts accounts) {
         String query = "insert into accounts (account_number, amount, client_id) values (?,?,?)";

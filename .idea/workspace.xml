@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12f11361-5ca5-4e1b-9666-1548c3b69c5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/processing/net/javaprogman/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/processing/net/javaprogman/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/processing/net/javaprogman/dbservices/InternetBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/processing/net/javaprogman/dbservices/InternetBank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/javaprogman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/javaprogman/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/CardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/EntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/EntityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/javaprogman/device/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/javaprogman/device/Terminal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/javaprogman/device/Tusson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/javaprogman/device/Tusson.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/javaprogman/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-466">
-              <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+            <state relative-caret-position="299">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,14 +42,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/CardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+            <state relative-caret-position="-51">
+              <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4150#4151#0" expanded="true" />
+                <element signature="e#4224#4225#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbservices/InternetBank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
+            <state relative-caret-position="44">
               <caret line="93" column="55" lean-forward="true" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -82,11 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/javaprogman/device/Tusson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -103,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/EntityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="37" column="38" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="38" />
+            <state relative-caret-position="119">
+              <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-92">
-              <caret line="134" column="32" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
+            <state relative-caret-position="248">
+              <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="29" column="57" lean-forward="true" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+            <state relative-caret-position="204">
+              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,14 +170,14 @@
         <option value="$PROJECT_DIR$/src/net/javaprogman/DBEntity/Client.java" />
         <option value="$PROJECT_DIR$/src/net/javaprogman/DBEntity/Accounts.java" />
         <option value="$PROJECT_DIR$/src/net/javaprogman/DBEntity/Card.java" />
-        <option value="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/ClientController.java" />
         <option value="$PROJECT_DIR$/src/net/javaprogman/dbservices/InternetBank.java" />
-        <option value="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/CardController.java" />
         <option value="$PROJECT_DIR$/src/net/javaprogman/device/Terminal.java" />
-        <option value="$PROJECT_DIR$/src/net/javaprogman/Main.java" />
-        <option value="$PROJECT_DIR$/src/net/javaprogman/device/Tusson.java" />
         <option value="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/EntityController.java" />
+        <option value="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/CardController.java" />
+        <option value="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/ClientController.java" />
         <option value="$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/net/javaprogman/device/Tusson.java" />
+        <option value="$PROJECT_DIR$/src/net/javaprogman/Main.java" />
       </list>
     </option>
   </component>
@@ -267,7 +261,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552819445481" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552823431650" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -317,12 +311,12 @@
       <workItem from="1552659176716" duration="17558000" />
       <workItem from="1552715789271" duration="20854000" />
       <workItem from="1552762971092" duration="1041000" />
-      <workItem from="1552809348016" duration="7413000" />
+      <workItem from="1552809348016" duration="10774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61481000" />
+    <option name="totallyTimeSpent" value="64842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="0" width="1598" height="860" extended-state="1" />
@@ -347,7 +341,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32909784" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3287483" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -484,16 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/javaprogman/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-466">
-          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/javaprogman/device/Terminal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -501,10 +485,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/CardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4224#4225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbservices/InternetBank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
+        <state relative-caret-position="44">
           <caret line="93" column="55" lean-forward="true" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/javaprogman/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -513,18 +528,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/javaprogman/device/Tusson.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/EntityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="37" column="38" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="38" />
+        <state relative-caret-position="119">
+          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -533,31 +545,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="29" column="57" lean-forward="true" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+        <state relative-caret-position="204">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="134" column="32" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/javaprogman/dbEntityManager/CardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="63" column="37" lean-forward="true" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4150#4151#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -62,6 +62,7 @@ public class ClientController extends EntityController<Client, Integer> {
         PreparedStatement ps = getPreparedStatement(query);
         try{
              if (ps.executeUpdate(query)>0) {
+                 connection.commit();
                  return client;
              } else throw new SQLException();
 
@@ -69,7 +70,7 @@ public class ClientController extends EntityController<Client, Integer> {
 
         }catch (SQLException e){
             try {
-                EntityController.connection.rollback();
+                connection.rollback();
             } catch (SQLException ee) {
                 System.out.println("Rollback is bad - ClientController.updateEntity " + ee);
             }
@@ -94,6 +95,7 @@ public class ClientController extends EntityController<Client, Integer> {
             ps.setDate(3, new java.sql.Date(client.getBirthdate().getTime()));
             ps.setString(4, client.getSex().name());
             if (ps.executeUpdate() > 0) {
+                connection.commit();
                 System.out.println("New client add");
             } else {
                 System.out.println("New client don't add");
@@ -113,6 +115,7 @@ public class ClientController extends EntityController<Client, Integer> {
         PreparedStatement ps = getPreparedStatement(query);
         try {
             ps.executeUpdate();
+            connection.commit();
             System.out.println("Client deleted");
         }catch (SQLException e) {
             e.printStackTrace();
